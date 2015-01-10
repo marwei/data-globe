@@ -1,0 +1,25 @@
+@import "../general/mixin";
+
+#add-point {
+  @include content(14px);
+  bottom: 50px;
+  right: 20px;
+}
+
+#points-list {
+  @include content(14px);
+  top: 20px;
+  right: 20px;
+  
+  max-height: 480px;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    width: 60px;
+    height: 16px;
+    margin: 0 10px;
+    vertical-align: top;
+    overflow: hidden;
+  }
+}

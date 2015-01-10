@@ -1,0 +1,26 @@
+<div id="container"></div>
+
+<div id="title">
+  <%= @globe.name.capitalize %>
+</div>
+<div id="description">
+  <%= @globe.description %>
+</div>
+
+<div id="points-list">
+  <ul><%= render @globe.points %></ul>
+</div>
+
+<div id="add-point">
+  <a href='#' id="add-button">Add</a>
+  <div id="point-form" style="display:none;">
+    <%= render 'points/form' %>
+  </div>
+</div>
+
+<div id="info">
+  <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by the Google Data Arts Team</span>
+</div>
+
+
+<%= render 'globe.js.erb' %>

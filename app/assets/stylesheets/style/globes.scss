@@ -1,0 +1,15 @@
+@import "../general/mixin";
+
+#title {
+  @include content(20px);
+  top: 20px;
+  width: 270px;
+  left: 20px;
+}
+
+#description {
+  @include content(14px);
+  top: 50px;
+  width: 270px;
+  left: 20px;
+}
