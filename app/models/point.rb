@@ -25,22 +25,22 @@ class Point < ActiveRecord::Base
   end
 
   def self.import(file)
-    last = self.last
-    found_last = false
+    # last = self.last
+    # found_last = false
 
     CSV.foreach(file.path, headers: true, encoding: 'windows-1251:utf-8') do |row|
       data = row.to_hash
 
-      unless last && found_last
-        if (data["city"].downcase == last.city.downcase && 
-          data["state"].downcase == last.state.downcase && 
-          data["country"].downcase == last.country.downcase)
-          found_last = true
-        else
-          p data["city"] + data["state"] + data["country"]
-          next
-        end
-      end
+      # unless last && found_last
+      #   if (data["city"].downcase == last.city.downcase && 
+      #     data["state"].downcase == last.state.downcase && 
+      #     data["country"].downcase == last.country.downcase)
+      #     found_last = true
+      #   else
+      #     p data["city"] + data["state"] + data["country"]
+      #     next
+      #   end
+      # end
       begin
         lat, lng = self.get_coordinates_for(data["city"], data["state"], data["country"])
         point = self.fetch_point_record_for lat, lng
