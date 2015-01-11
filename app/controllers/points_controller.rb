@@ -11,11 +11,12 @@ class PointsController < ApplicationController
   end
 
   def create
-    globe = Globe.find(params[:globe_id])
-    @point = globe.points.build(point_params)
+    @globe = Globe.find(params[:globe_id])
+    @point = @globe.points.build(point_params)
     
     respond_to do |format|
       if @point.save
+        @points_json = Point.get_json @globe.points
         format.html
         format.js
       else

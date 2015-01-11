@@ -19,6 +19,7 @@ class GlobesController < ApplicationController
 
   def show
     @globe = Globe.find(params[:id])
+    @points_json = Point.get_json @globe.points
   end
 
   def edit

@@ -13,3 +13,9 @@
   width: 270px;
   left: 20px;
 }
+
+#refresh {
+  @include content(16px);
+  top: 50px;
+  left: 50%;
+}

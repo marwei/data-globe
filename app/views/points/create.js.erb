@@ -1,1 +1,3 @@
-$("#points-list ul").append("<%= j render @point if @point.valid? %>") 
+$("#points-list ul").append("<%= j render @point if @point.valid? %>")
+$("#container").html('');
+renderGlobe('<%= @points_json %>');

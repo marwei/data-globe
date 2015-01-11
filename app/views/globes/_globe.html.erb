@@ -1,0 +1,28 @@
+<a href="#" id="refresh">Refresh</a>
+
+<script type="text/javascript">
+  function renderGlobe(raw_json) {
+    if(!Detector.webgl){
+      Detector.addGetWebGLMessage();
+    } else {
+      var globe = DAT.Globe(document.getElementById('container'), {    
+        img: '<%= image_path "world.jpg" %>'
+      });
+      console.log(raw_json);
+      var data = JSON.parse(raw_json);
+      window.data = data;
+      globe.addData(data, {format: 'magnitude'});
+      globe.createPoints();
+      globe.animate();
+
+      document.body.style.backgroundImage = 'none'; // remove loading
+    }
+  }
+  $(document).ready(renderGlobe('<%= @points_json %>'));
+  
+  $("#refresh").click(function(event){
+    event.preventDefault();
+    $("#container").html('');
+    renderGlobe('<%= @points_json %>');
+  });
+</script>
