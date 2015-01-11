@@ -28,7 +28,7 @@ a:hover {
   bottom: 5px;
   background-color: rgba(0,0,0,0.8);
   border-radius: 3px;
-  right: 10px;
+  left: 10px;
   padding: 10px;
 }
 
@@ -38,5 +38,51 @@ a:hover {
 }
 
 #container {
-  width: 80%;
+  width: 90%;
+}
+
+.fa-spin-hover:hover {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+
+.form-component {
+  width: 100%;
+  margin: 5px 0;
+  label {
+    width: 30%;
+    display: inline-block;
+  }
+  
+  input[type="text"], textarea {
+    width: 60%;
+    background: #000000;
+    color: #ffffff;
+    border-width: 1px;
+    display: inline-block;
+    float: right;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    background: #000000;
+    color: #ffffff;
+    margin-top: 5px;
+  }
+
 }

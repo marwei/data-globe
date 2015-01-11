@@ -1,3 +1,41 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new-globe-form {
+  position: absolute;
+  width: 360px;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+
+  .form-component {
+    margin: 20px 0;
+    width: 360px;
+  }
+
+  label {
+    font-size: 18px;
+    padding: 6px 0;
+  }
+
+  input[type="text"] {
+    height: 30px;
+    border-radius: 5px;
+  }
+
+  input[type="submit"] {
+    height: 30px;
+    margin: 20px 0;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+
+  textarea {
+    height: 80px;
+    border-radius: 5px;
+  }
+}

@@ -12,7 +12,7 @@ class PointsController < ApplicationController
 
   def create
     @globe = Globe.find(params[:globe_id])
-    @point = @globe.points.build(point_params)
+    @point = @globe.points.add_or_build(point_params)
     
     respond_to do |format|
       if @point.save
@@ -38,6 +38,7 @@ class PointsController < ApplicationController
   def delete
     
   end
+
 
   private
 

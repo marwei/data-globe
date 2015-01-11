@@ -1,21 +1,25 @@
 @import "../general/mixin";
 
+$title-width: 250px;
+
 #title {
-  @include content(20px);
+  @include content(24px);
   top: 20px;
-  width: 270px;
+  width: 250px;
   left: 20px;
+  span {
+    width: $title-width - 50px;
+    display: inline-block;
+  }
 }
 
 #description {
   @include content(14px);
-  top: 50px;
-  width: 270px;
+  top: 80px;
+  width: $title-width;
   left: 20px;
 }
 
 #refresh {
-  @include content(16px);
-  top: 50px;
-  left: 50%;
+  float: right;
 }

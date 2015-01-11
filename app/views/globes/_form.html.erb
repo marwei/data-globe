@@ -1,0 +1,15 @@
+<div id="new-globe-form">
+  <%= form_for Globe.new do |f| %>
+    <div class="form-component">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-component">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div class="form-component">
+      <%= f.submit "New Globe" %>
+    </div>
+  <% end %>
+</div>

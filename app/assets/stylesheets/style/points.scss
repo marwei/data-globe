@@ -1,25 +1,54 @@
 @import "../general/mixin";
 
-#add-point {
-  @include content(14px);
-  bottom: 50px;
-  right: 20px;
+$sidebar-width: 240px;
+
+#side-bar {
+  @include content(16px);
+  background: rgba(255, 255, 255, 0.1);
+  right: 0px;
+  width: $sidebar-width;
+  height: 100%;
 }
 
 #points-list {
-  @include content(14px);
+  @include content(10px);
+  background: transparent;
   top: 20px;
-  right: 20px;
-  
-  max-height: 480px;
+  right: 0px;
+
+  max-height: 60%;
   overflow: scroll;
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  li {
+    margin: 5px 0;
+  }
 
   span {
     display: inline-block;
-    width: 60px;
-    height: 16px;
-    margin: 0 10px;
+    width: 45px;
+    height: 12px;
+    margin: 0 5px;
     vertical-align: top;
     overflow: hidden;
   }
+}
+
+#add-point {
+  @include content(14px);
+  background: transparent;
+  width: $sidebar-width - 30px;
+  bottom: 70px;
+  right: 20px;
+}
+
+#import {
+  @include content(16px);
+  bottom: 10px;
+  width: $sidebar-width - 30px;
 }

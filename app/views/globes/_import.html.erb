@@ -1,0 +1,5 @@
+<%= form_for :globe, url: {action: :import, params: {id: @globe.id}} do |f| %>
+  <div class="form-component"><%= f.file_field :file %></div>
+  <div class="form-component"><%= f.submit "Import" %></div>
+<% end %>
+  

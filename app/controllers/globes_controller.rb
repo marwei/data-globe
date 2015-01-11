@@ -1,6 +1,6 @@
 class GlobesController < ApplicationController
   def index
-    @globes = Globe.all
+    redirect_to "static/index"
   end
 
   def new
@@ -13,7 +13,7 @@ class GlobesController < ApplicationController
       redirect_to @globe
     else
       flash[:notice] = "Can't be blank"
-      render "new"
+      render "static/index"
     end
   end
 
@@ -27,11 +27,19 @@ class GlobesController < ApplicationController
   end
 
   def update
-    
   end
 
   def delete
     
+  end
+
+  def import
+    @globe = Globe.find(params[:id])
+    p params
+    @globe.points.import(params[:globe][:file])
+    redirect_to @globe
+  rescue
+    redirect_to @globe
   end
 
   private 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :globes do
     resources :points
+    collection { post :import }
   end
 
   get 'static/index'
