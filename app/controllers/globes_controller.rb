@@ -1,6 +1,7 @@
 class GlobesController < ApplicationController
+  before_action -> { @globe = Globe.find(params[:id]) }, except: [:index, :new, :create]
   def index
-    redirect_to "static/index"
+    redirect_to root_path
   end
 
   def new
@@ -13,29 +14,32 @@ class GlobesController < ApplicationController
       redirect_to @globe
     else
       flash[:notice] = "Can't be blank"
-      render "static/index"
+      redirect_to root_path
     end
   end
 
   def show
-    @globe = Globe.find(params[:id])
     @points_json = Point.get_json @globe.points
   end
 
   def edit
-    
   end
 
   def update
+    if @globe.update(globe_params)
+      redirect_to @globe
+    else
+      render 'edit'
+    end
   end
 
-  def delete
-    
+  def destroy
+    @globe.destroy
+    flash[:notice] = "Globe #{@globe.name} destroyed"
+    redirect_to root_path
   end
 
   def import
-    @globe = Globe.find(params[:id])
-    p params
     @globe.points.import(params[:globe][:file])
     redirect_to @globe
   rescue

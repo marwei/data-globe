@@ -17,3 +17,4 @@
 /tmp
 /util
 .byebug_history
+.DS_Store

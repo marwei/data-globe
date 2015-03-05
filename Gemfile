@@ -8,6 +8,7 @@ end
 
 group :development do
   gem "sqlite3"
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
@@ -16,10 +17,9 @@ group :development, :test do
   gem "rspec-rails"
   gem "rspec-html-matchers"
   gem "capybara"
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem "faker"
   gem 'spring'
-  gem 'web-console', '~> 2.0'
 end
 
 gem 'roo', '~> 2.1.0'
