@@ -6,7 +6,7 @@ class Point < ActiveRecord::Base
   validates :country, presence: true
   validates :magnitude, presence: true, numericality: true
 
-  before_save -> { [city, state, country].each { |atr| atr.capitalize!} }
+  before_save -> { [city, state, country].each { |atr| atr.titleize } }
 
   def self.add_or_build(params)
     lat, lng = self.get_coordinates_for(params[:city], params[:state], params[:country])

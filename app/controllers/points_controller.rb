@@ -1,15 +1,5 @@
 class PointsController < ApplicationController
-  def index
-    
-  end
-  def new
-    @point = Point.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
+  before_action :find_globe_and_point, except: :create
   def create
     @globe = Globe.find(params[:globe_id])
     @point = @globe.points.add_or_build(point_params)
@@ -17,10 +7,13 @@ class PointsController < ApplicationController
     respond_to do |format|
       if @point.save
         @points_json = Point.get_json @globe.points
-        format.html
+        format.html { redirect_to @globe }
         format.js
       else
-        format.html { render 'new' }
+        format.html do 
+          flash[:error] = "Can't create point, please check your input"
+          redirect_to @globe
+        end
         format.js
       end
     end
@@ -32,7 +25,10 @@ class PointsController < ApplicationController
   end
 
   def update
-    
+    unless @point.update(point_params)
+      flash[:error] = "Can't edit point, please check your input"
+    end
+    redirect_to @globe
   end
 
   def delete
@@ -44,5 +40,10 @@ class PointsController < ApplicationController
 
     def point_params
       params.require(:point).permit(:city, :state, :country, :magnitude)
+    end
+
+    def find_globe_and_point
+      @globe = Globe.find(params[:globe_id])
+      @point = @globe.points.find(params[:id])
     end
 end

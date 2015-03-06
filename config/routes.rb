@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :globes do
-    resources :points
+    resources :points, except: [:index, :new, :show]
     collection { post :import }
   end
 
